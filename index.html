@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>看图识音符</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>看图识音符</h1>
+        <p>观察图片，输入对应的 do / re / mi / fa / so / la / xi。</p>
+      </header>
+
+      <section class="card">
+        <div class="card__image-wrapper">
+          <img id="noteImage" alt="正在加载音符..." />
+        </div>
+        <div class="card__stats">
+          <span>正确：<strong id="correctCount">0</strong></span>
+          <span>已答：<strong id="totalCount">0</strong></span>
+        </div>
+      </section>
+
+      <form id="answerForm" class="form">
+        <label for="answerInput">输入答案：</label>
+        <input
+          id="answerInput"
+          type="text"
+          placeholder="例如 do / d / 1"
+          autocomplete="off"
+          required
+        />
+        <div class="form__actions">
+          <button type="submit" class="btn primary">提交</button>
+          <button type="button" id="skipButton" class="btn">换一张</button>
+        </div>
+      </form>
+
+      <p id="feedback" class="feedback"></p>
+
+      <footer class="hint">
+        <p>
+          匹配方式：文件名完整或前缀、首字母，以及 do~xi 对应的 1~7
+          都算正确。
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
