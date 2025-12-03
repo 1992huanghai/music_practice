@@ -35,8 +35,6 @@ echo "📤 推送代码到 GitHub..."
 echo "（如果是第一次推送，可能需要输入 GitHub 用户名和密码/token）"
 echo ""
 
-git add .
-git commit -m "Initial commit"
 git push -u origin main
 
 if [ $? -eq 0 ]; then

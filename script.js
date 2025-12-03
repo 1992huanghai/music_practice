@@ -61,6 +61,10 @@ const feedbackEl = document.getElementById("feedback");
 const skipButton = document.getElementById("skipButton");
 const correctCountEl = document.getElementById("correctCount");
 const totalCountEl = document.getElementById("totalCount");
+const correctSound = new Audio("assets/audio/correct.mp3");
+const wrongSound = new Audio("assets/audio/wrong.mp3");
+correctSound.preload = "auto";
+wrongSound.preload = "auto";
 
 const stats = { total: 0, correct: 0 };
 let currentQuestion = null;
@@ -118,6 +122,13 @@ function showFeedback(message, isCorrect) {
   feedbackEl.className = `feedback ${isCorrect ? "success" : "error"}`;
 }
 
+function playSound(audioEl) {
+  if (!audioEl) return;
+  audioEl.pause();
+  audioEl.currentTime = 0;
+  audioEl.play().catch(() => {});
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   if (!currentQuestion) return;
@@ -128,9 +139,11 @@ function handleSubmit(event) {
 
   if (isCorrect) {
     showFeedback(`✅ 正确！这是 ${currentQuestion.note.toUpperCase()}.`, true);
+    playSound(correctSound);
     scheduleNextQuestion();
   } else {
     showFeedback("❌ 再试一次，注意看谱面细节。", false);
+    playSound(wrongSound);
   }
 }
 

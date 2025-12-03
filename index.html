@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="background-notes" aria-hidden="true">
+      <span class="note note--1">♪</span>
+      <span class="note note--2">♩</span>
+      <span class="note note--3">♫</span>
+      <span class="note note--4">♬</span>
+      <span class="note note--5">♩</span>
+    </div>
     <main class="app">
       <header class="app__header">
+        <span class="app__badge">音符派对</span>
         <h1>看图识音符</h1>
         <p>观察图片，输入对应的 do / re / mi / fa / so / la / xi。</p>
       </header>
@@ -21,10 +29,11 @@
           <span>正确：<strong id="correctCount">0</strong></span>
           <span>已答：<strong id="totalCount">0</strong></span>
         </div>
+        <p class="card__tip">小贴士：注意谱号和音区变化噢！</p>
       </section>
 
       <form id="answerForm" class="form">
-        <label for="answerInput">输入答案：</label>
+        <label for="answerInput">🎵 输入答案：</label>
         <input
           id="answerInput"
           type="text"
@@ -33,8 +42,8 @@
           required
         />
         <div class="form__actions">
-          <button type="submit" class="btn primary">提交</button>
-          <button type="button" id="skipButton" class="btn">换一张</button>
+          <button type="submit" class="btn primary">✨ 提交</button>
+          <button type="button" id="skipButton" class="btn">🎲 换一张</button>
         </div>
       </form>
 
